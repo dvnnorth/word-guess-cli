@@ -6,13 +6,17 @@
  *      Defaults to 'a'.
  * @param bool isDisplayed - Whether or not the letter is blank (_) or displayed (the character).
  *      Defaults to false.
- * @method output () - getter, outputs the letter or an underscore depending on the value of isDisplayed
+ * @method toString () - getter, outputs the letter or an underscore depending on the value of isDisplayed
  * @method reveal () - mutator, changes isDisplayed to true
  * @method visible () - getter, returns the status of isDisplayed
  * @method getLetter () - getter, returns the letter
  * @function formatLetter (@param letter) - helper function that formats a string parameter to be a single character
  */
 function Letter (letter, isDisplayed) {
+
+    // Errors
+    const INVALID_ARG = new RangeError(`Invalid parameter for constructor function Letter(): ` +
+        `must be a string of at least one character length`);
 
     // Error handling and initialization
     if (!isDisplayed || typeof isDisplayed !== 'boolean') isDisplayed = false;
@@ -22,7 +26,7 @@ function Letter (letter, isDisplayed) {
     const blank = `_`;
 
     // output returns the letter or the blank depending on the value of isDisplayed
-    this.output = function () {
+    this.toString = function () {
         if (isDisplayed) return letter;
         return blank;
     }
@@ -37,12 +41,14 @@ function Letter (letter, isDisplayed) {
         return isDisplayed;
     }
 
+    // Returns the letter as a string
     this.getLetter = function () {
         return letter;
     }
 
+    // Formats letters down to single string (or character `a` if input is invalid)
     function formatLetter(letter) {
-        if (!letter || letter === `` || typeof letter !== `string`) return `a`;
+        if (!letter || letter === `` || typeof letter !== `string`) throw INVALID_ARG;
         letter = letter.trim();
         letter[0] && (letter = letter[0]);
         return letter;
