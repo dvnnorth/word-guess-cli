@@ -1,0 +1,22 @@
+{
+  "name": "word-guess-cli",
+  "version": "1.0.0",
+  "description": "A terminal-based, Hangman-style word guess game written in Node.js",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dvnnorth/word-guess-cli.git"
+  },
+  "author": "Devin North",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dvnnorth/word-guess-cli/issues"
+  },
+  "homepage": "https://github.com/dvnnorth/word-guess-cli#readme",
+  "dependencies": {
+    "inquirer": "^6.0.0"
+  }
+}
