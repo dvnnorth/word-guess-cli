@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/dvnnorth/word-guess-cli#readme",
   "dependencies": {
-    "inquirer": "^6.0.0"
+    "inquirer": "^6.0.0",
+    "request": "^2.87.0"
   }
 }
