@@ -11,6 +11,8 @@ const Letter = require(`./letter`);
  *      whether or not that character exists in the string and reveals it if so. Returns true or false
  *      based on whether the guess was correct or not.
  * @method revealAll () - reveals all of the Letter objects in letterCollection effectively revealing the word
+ * @method getWord () - getter, returns the string of the original seeded word as a string
+ * @method isRevealed () - getter, returns whether or not the entire word has been revealed or not as a boolean
  * @function formatLetter (@param letter) - helper function that formats a string parameter to be a single character
  *      or a blank string (on invalid input)
  */
@@ -41,12 +43,24 @@ function Word (word) {
         letterCollection.forEach((letterObj) => letterObj.reveal());
     }
 
+    this.getWord = function () { return word; }
+
+    this.isRevealed = function () {
+        return letterCollection.reduce((solved, letterObj) => {
+            if (!solved) return solved;
+            else {
+                return letterObj.visible();
+            }
+        }, true);
+    }
+
     function formatLetter (letter) {
         if (!letter || letter === `` || typeof letter !== `string`) return ``;
         letter = letter.trim();
         letter[0] && (letter = letter[0]);
         return letter;
     }
+
 }
 
 module.exports = Word;

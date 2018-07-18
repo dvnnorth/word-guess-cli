@@ -2,7 +2,7 @@
   "name": "word-guess-cli",
   "version": "1.0.0",
   "description": "A terminal-based, Hangman-style word guess game written in Node.js",
-  "main": "main.js",
+  "main": "word-guess.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
